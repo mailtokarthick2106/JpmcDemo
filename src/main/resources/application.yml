@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: JpmcDemo
+  profiles:
+    active:
+    - dev
+  cloud:
+    config:
+      enabled: true    
+  config:
+    import:
+    - "optional:configserver:http://admin:admin@localhost:8888" 
+
+server:
+  port: 8090    
+---
+spring:
+  application:
+    name: JpmcDemo
+  profiles:
+    active:
+    - prod
+  cloud:
+    config:
+      enabled: true    
+  config:
+    import:
+    - "optional:configserver:http://admin:admin@localhost:8888"   
+
+server:
+  port: 8090    
